@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>最强解压工具 |  秦大人科技仓库</title>
+      <title>微软 Windows 11 24H2 安全隐患：AppLocker 漏洞、性能投诉、数据丢失风险 |  秦大人科技仓库</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/favicon.ico" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-090"
+  id="post-89"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  最强解压工具
+  微软 Windows 11 24H2 安全隐患：AppLocker 漏洞、性能投诉、数据丢失风险
 </h1>
  
 
@@ -74,8 +74,8 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2025/02/11/090/" class="article-date">
-  <time datetime="2025-02-11T04:30:51.000Z" itemprop="datePublished">2025-02-11</time>
+      <a href="/2025/05/24/89/" class="article-date">
+  <time datetime="2025-05-24T09:39:37.000Z" itemprop="datePublished">2025-05-24</time>
 </a>  
     </div>
       
@@ -87,7 +87,15 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="7-ZIP"><a href="#7-ZIP" class="headerlink" title="7-ZIP"></a>7-ZIP</h1><p>他是一个由外国大神开放的解压缩无广告不仅支持常规zip.7z和一些不常用的tar.rar<br>占内存小只有500mb，唯一缺点是第一次使用需要选择7-ZIP<br> <a target="_blank" rel="noopener" href="https://qxf1975.lanzn.com/b00q0929pi">下载</a> 密码:2h10</p>
+  <p>IT之家 5 月 6 日消息，微软上周宣布广泛发布 Windows 11 24H2，不过用户反馈在升级过程中频现重大 Bug，系统性能普遍下降，甚至有数据丢失的风险。</p>
+<p>IT之家曾于 5 月 4 日报道，微软针对符合升级条件，当前运行 23H2、22H2 和 21H2 版本的家庭版、专业版设备，将自动推送 24H2 更新。</p>
+<p>不过用户反馈在更新过程中存在诸多问题，包括升级相关的重大漏洞、广泛的性能投诉以及潜在的数据丢失风险。</p>
+<h1 id="AppLocker-升级存在重大漏洞"><a href="#AppLocker-升级存在重大漏洞" class="headerlink" title="AppLocker 升级存在重大漏洞"></a>AppLocker 升级存在重大漏洞</h1><p>其中最值得关注的是，AppLocker WDAC 脚本执行策略存在漏洞。AppLocker 是企业用来管理用户可运行应用程序和文件的控制策略，涵盖 EXE 文件、脚本、Windows Installer 文件等。<br>微软曾于 2023 年简化 AppLocker 的部署流程，但在 2024-2025 年的测试中不够完善。Stack Exchange 论坛用户 CFou 率先发现问题，指出 ConstrainedLanguage 模式无法正常执行，PowerShell 会话默认使用 FullLanguage 模式。<br>随后，Reddit 用户 hornetfig 及 sysadmin 子论坛的多名用户也在 Windows 11 24H2 上重现了这一问题。这一漏洞可能导致恶意脚本无限制运行，构成严重安全威胁。</p>
+<p>微软 MVP Roody Ooms 深入调查后发现，问题源于 PowerShell 7.3 新增的 WldpCanExecuteFile API 实现不完善，而早期版本使用的 WldpGetLockdownPolicy API 更为稳定。</p>
+<p>微软已获悉此问题，并在 PowerShell 7.6-preview.4 中加入修复措施，改进“回退至 AppLocker”的引擎。</p>
+<h1 id="性能影响"><a href="#性能影响" class="headerlink" title="性能影响"></a>性能影响</h1><p>用户 IridiumIO（同时也是 CompactGUI 开发者）指出，Windows Defender 的实时保护（Realtime Protection）严重拖慢速度，关闭后解压速度可提升 35%。<br>相比之下，文件资源管理器的性能与 7Zip 或 PowerShell 的 Expand-Archive 命令相比，依然“慢得离谱”。用户批评微软虽新增了对 RAR 和 7Z 格式的支持，但这些功能只是“拼凑”在老旧系统上，实用性有限。<br>IridiumIO 还发现一个有趣现象：在用户账户的“Downloads”文件夹解压文件时，速度比在 C 盘根目录解压慢约 10%。他推测，这可能是文件资源管理器在解压时逐一检查文件路径结构导致的，若文件嵌套层级更深，速度可能会进一步下降。</p>
+<h1 id="数据丢失"><a href="#数据丢失" class="headerlink" title="数据丢失"></a>数据丢失</h1><p>IT之家此前报道，微软移除 BYPASSNRO 脚本，账户强制要求可能与最新 Windows 11 功能更新中的 BitLocker 加密默认设置有关，恢复密钥会备份至用户账户。然而，BitLocker 加密被指可能导致数据丢失风险。</p>
+<p>Reddit 用户 MorCJul 发帖批评，称 BitLocker 自动启用后，若丢失账户访问权限，用户将永久失去数据。许多普通用户对此毫无准备，微软“默认安全”策略被质疑忽视用户实际需求。</p>
  
       <!-- reward -->
       
@@ -152,7 +160,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2025/02/11/090/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2025/05/24/89/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -163,19 +171,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2025/05/24/89/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            微软 Windows 11 24H2 安全隐患：AppLocker 漏洞、性能投诉、数据丢失风险
-          
-        </div>
-      </a>
     
-    
-      <a href="/2025/01/26/9/" class="article-nav-link">
+      <a href="/2025/02/11/090/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">新年祝福</div>
+        <div class="article-nav-title">最强解压工具</div>
       </a>
     
   </nav>
